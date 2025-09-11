@@ -16,7 +16,7 @@ export default function Header() {
         <Image alt="Logo de la crêche" src={logo} width={648} height={610} />
       </div>
       <div id="menu">
-        {screenWidth > 640 ? (
+        {screenWidth > 1000 ? (
           <DesktopMenu />
         ) : (
           <div className="flex justify-center">

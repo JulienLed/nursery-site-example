@@ -60,5 +60,6 @@ export const menu = [
       },
     ],
   },
+  { title: "Tarif", path: "/tarif" },
   { title: "Contact", path: "/contact" },
 ];
