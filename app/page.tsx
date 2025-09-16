@@ -1,25 +1,24 @@
 import { Card, CardTitle, CardHeader, CardContent } from "@/components/ui/card";
-import equipeLogo from "@/public/equipe.png";
-import projetLogo from "@/public/projet.png";
-import servicesLogo from "@/public/services.png";
-import tarifLogo from "@/public/tarif.png";
-import contactLogo from "@/public/contact.png";
+import { menu } from "@/src/component/data/data";
 import Image from "next/image";
+import Link from "next/link";
+import { IoMdMail } from "react-icons/io";
+import NurseryMap from "@/src/component/map/nurseryMap";
 
 export default function Page() {
   return (
-    <Card>
+    <Card className="max-w-full animate-fade-left duration-200 leading-8 sm:leading-10 !bg-amber-300 !border-none !shadow-2xl">
       <CardHeader>
         <CardTitle className="font-fredoka text-2xl">
           La crêche de Wavre
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <Card>
+        <Card className="animate-fade-left delay-500 bg-amber-500 !border-none !shadow-2xl">
           <CardHeader>
             <CardTitle className="font-fredoka text-xl">Présentation</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex flex-col gap-10">
             <section id="presentation" className="flex flex-col gap-5">
               <p>
                 La Crèche de Wavre accueille les tout-petits dans un
@@ -41,51 +40,46 @@ export default function Page() {
                 sereinement et où les parents ont confiance.
               </p>
             </section>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent>
-            <section id="pages" className="flex justify-evenly">
-              <div id="equipe">
-                <Image
-                  alt="image equipe"
-                  src={equipeLogo}
-                  width={1024}
-                  height={1024}
-                />
-              </div>
-              <div id="projet">
-                <Image
-                  alt="image projet"
-                  src={projetLogo}
-                  width={1024}
-                  height={1024}
-                />
-              </div>
-              <div id="services">
-                <Image
-                  alt="image services"
-                  src={servicesLogo}
-                  width={1024}
-                  height={1024}
-                />
-              </div>
-              <div id="tarif">
-                <Image
-                  alt="image tarif"
-                  src={tarifLogo}
-                  width={1024}
-                  height={1024}
-                />
-              </div>
-              <div id="contact">
-                <Image
-                  alt="image contact"
-                  src={contactLogo}
-                  width={1024}
-                  height={1024}
-                />
-              </div>
+            <section
+              id="pages"
+              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 my-10"
+            >
+              {menu.map((el) => {
+                if (!el.img) return;
+                return (
+                  <div
+                    className="flex flex-col gap-5 hover:scale-105 hover:text-accent duration-300 ease-in-out"
+                    key={el.title}
+                    id={el.title}
+                  >
+                    <Link href={el.path} className="flex flex-col text-center">
+                      <p className="font-fredoka text-center text-xl whitespace-nowrap">
+                        {el.title}
+                      </p>
+
+                      <Image
+                        alt={el.title}
+                        src={el.img.src}
+                        width={el.img.width}
+                        height={el.img.height}
+                      />
+                    </Link>
+                  </div>
+                );
+              })}
+            </section>
+            <section id="map" className="flex justify-center">
+              <NurseryMap />
+            </section>
+            <section id="contactAgain" className="font-fredoka text-xl mt-10">
+              <a
+                className="flex flex-col text-center sm:flex-row gap-2 items-center justify-center sm:items-center sm:justify-center hover:text-accent transition-colors duration-300 ease-in-out"
+                href="mailto:info@crechewavre.be"
+                target="_blank"
+              >
+                <IoMdMail className="text-[3rem]" /> N'hésitez pas à nous
+                contacter pour plus d'informations !
+              </a>
             </section>
           </CardContent>
         </Card>

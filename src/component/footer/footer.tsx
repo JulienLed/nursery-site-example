@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <Card className="min-w-screen bg-gradient-to-t from-sky-950 to-sky-400 !border-0 rounded-none">
+    <Card className="min-w-screen bg-green-900 !border-0 !rounded-none z-1000">
       <CardContent className="grid gap-2 grid-cols-[20vw_40vw_35vw] items-center text-[0.8rem] text-white font-semibold">
         <section id="logo">
           <Image

@@ -29,9 +29,13 @@ export default function DesktopMenu() {
                       </Link>
                     </NavigationMenuLink>
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="!w-60 !shadow-xl">
+                  <NavigationMenuContent className="!w-60 !shadow-xl !border-0">
                     {item.content.map((subItem) => (
-                      <NavigationMenuLink key={subItem.title} asChild>
+                      <NavigationMenuLink
+                        key={subItem.title}
+                        asChild
+                        className="text-md"
+                      >
                         <Link href={subItem.path}>{subItem.title}</Link>
                       </NavigationMenuLink>
                     ))}

@@ -3,6 +3,7 @@ import { Fredoka, Nunito } from "next/font/google";
 import "./globals.css";
 import Header from "@/src/component/header/header";
 import Footer from "@/src/component/footer/footer";
+import Deer from "@/src/component/animals";
 
 export const metadata: Metadata = {
   title: "La crêche de Wavre",
@@ -27,13 +28,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`flex flex-col items-center justify-center min-h-screen bg-sky-400 ${nunito.className} ${fredoka.variable}`}
+        className={`flex flex-col items-center justify-center min-h-screen bg-green-900 ${nunito.className} ${fredoka.variable}`}
       >
         <Header />
         <main
-          className={`flex-1 flex flex-col items-center w-[90vw] sm:w-[80vw] md:w-[70vw] my-10`}
+          className={`flex-1 flex flex-col items-center w-[90vw] sm:w-[70vw] my-10 sm:my-20`}
         >
           {children}
+          <Deer />
         </main>
         <Footer />
       </body>

@@ -1,9 +1,14 @@
 export const menu = [
   { title: "Accueil", path: "/" },
-  { title: "Equipe", path: "/equipe" },
+  {
+    title: "Equipe",
+    path: "/equipe",
+    img: { src: "/equipe.png", width: 1024, height: 1024 },
+  },
   {
     title: "Projet Pédagogique",
     path: "/projet-pedagogique",
+    img: { src: "/projet.png", width: 1024, height: 1024 },
     content: [
       {
         title: "Accueil",
@@ -42,6 +47,7 @@ export const menu = [
   {
     title: "Services",
     path: "/services",
+    img: { src: "/services.png", width: 1024, height: 1024 },
     content: [
       { title: "Accueil", path: "/services/accueil" },
       { title: "Soins et hygiène", path: "/services/soins-hygiene" },
@@ -60,6 +66,14 @@ export const menu = [
       },
     ],
   },
-  { title: "Tarif", path: "/tarif" },
-  { title: "Contact", path: "/contact" },
+  {
+    title: "Tarif",
+    path: "/tarif",
+    img: { src: "/tarif.png", width: 1024, height: 1024 },
+  },
+  {
+    title: "Contact",
+    path: "/contact",
+    img: { src: "/contact.png", width: 1024, height: 1024 },
+  },
 ];
