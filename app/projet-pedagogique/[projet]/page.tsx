@@ -15,7 +15,7 @@ export default function Page(props: { params: { projet: string } }) {
             {projet.title}
           </CardTitle>
         </CardHeader>
-        <CardContent>{projet.description}</CardContent>
+        <CardContent>{projet.path}</CardContent>
       </Card>
     </div>
   );
