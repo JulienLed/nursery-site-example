@@ -34,8 +34,8 @@ export default function RootLayout({
         <main
           className={`flex-1 flex flex-col items-center w-[90vw] sm:w-[70vw] my-10 sm:my-20`}
         >
-          {children}
           <Deer />
+          {children}
         </main>
         <Footer />
       </body>
