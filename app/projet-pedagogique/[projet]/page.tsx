@@ -21,8 +21,8 @@ interface Project {
   };
 }
 
-export default function Page(props: { params: { projet: string } }) {
-  const slug = props.params.projet;
+export default function Page({ params }: { params: { projet: string } }) {
+  const slug = params.projet;
 
   const projet = (menu[2].content as Project[]).find(
     (el) => el.path.split("/").pop() === slug
