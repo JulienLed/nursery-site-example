@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/card";
 import { menu } from "@/src/component/data/data";
 import Image from "next/image";
+import { use } from "react";
 
 interface Project {
   title: string;
@@ -21,12 +22,12 @@ interface Project {
   };
 }
 
-interface PageProps {
-  params: { projet: string };
-}
-
-export default async function Page({ params }: { params: { projet: string } }) {
-  const slug = params.projet;
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ projet: string }>;
+}) {
+  const slug = use(params).projet;
 
   const projet = (menu[2].content as Project[]).find(
     (el) => el.path.split("/").pop() === slug
