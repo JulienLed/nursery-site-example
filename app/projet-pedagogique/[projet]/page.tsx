@@ -25,7 +25,7 @@ interface PageProps {
   params: { projet: string };
 }
 
-export default function Page({ params }: PageProps) {
+export default async function Page({ params }: { params: { projet: string } }) {
   const slug = params.projet;
 
   const projet = (menu[2].content as Project[]).find(
