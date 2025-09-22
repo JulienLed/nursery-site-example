@@ -21,11 +21,9 @@ export default function Page() {
           <CardContent className="flex flex-col gap-10">
             <section id="presentation" className="flex flex-col gap-5">
               <p>
-                La Crèche de Wavre accueille les tout-petits dans un
-                environnement chaleureux, sécurisé et éducatif. Notre équipe de
-                professionnels accompagne chaque enfant dans son développement,
-                avec une attention particulière au bien-être, à l'autonomie et à
-                la découverte.
+                {
+                  "La Crèche de Wavre accueille les tout-petits dans un environnement chaleureux, sécurisé et éducatif. Notre équipe de professionnels accompagne chaque enfant dans son développement, avec une attention particulière au bien-être, à l'autonomie et à la découverte."
+                }
               </p>
 
               <p>Située au cœur de Wavre, la crèche propose :</p>
@@ -77,8 +75,8 @@ export default function Page() {
                 href="mailto:info@crechewavre.be"
                 target="_blank"
               >
-                <IoMdMail className="text-[3rem]" /> N'hésitez pas à nous
-                contacter pour plus d'informations !
+                <IoMdMail className="text-[3rem]" />{" "}
+                {"N'hésitez pas à nous contacter pour plus d'informations !"}
               </a>
             </section>
           </CardContent>
