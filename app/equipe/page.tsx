@@ -7,13 +7,16 @@ import {
 } from "@/components/ui/card";
 import { menu } from "@/src/component/data/data";
 import Image from "next/image";
+import Leaf from "@/src/component/leaf";
 
 export default function Page() {
   return (
-    <Card className="max-w-full w-full animate-fade-left duration-200 leading-8 sm:leading-10 !bg-amber-300 !border-none !shadow-2xl">
+    <Card className="max-w-full w-full animate-fade-left duration-200 leading-8 sm:leading-10 !bg-accent !border-none !shadow-2xl">
       <CardHeader>
-        <CardTitle className="font-fredoka text-2xl">Notre Equipe</CardTitle>
-        <CardDescription>
+        <CardTitle className="font-fredoka text-popover text-center text-3xl pb-5">
+          Notre Equipe
+        </CardTitle>
+        <CardDescription className="text-popover text-xl text-justify pb-5">
           Notre équipe est composée de professionnelles passionnées par la
           petite enfance. Chacune apporte son expérience, son énergie et sa
           sensibilité pour offrir aux enfants un environnement sécurisant,
@@ -23,18 +26,18 @@ export default function Page() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <Card className="animate-fade-left delay-500 bg-amber-500 !border-none !shadow-2xl">
+        <Card className="animate-fade-left delay-500 bg-popover !border-none !shadow-2xl">
           <CardHeader>
             <CardTitle className="font-fredoka text-xl">
               Des professionnelles au service de vos enfants
             </CardTitle>
           </CardHeader>
-          <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-10 animate-fade-left delay-500 bg-amber-500 !border-none">
+          <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-10 animate-fade-left delay-500 bg-popover !border-none">
             {menu[1].members?.map((member) => {
               return (
                 <Card
                   key={member.name}
-                  className="flex flex-col bg-amber-300 !border-none !shadow-2xl"
+                  className="flex flex-col bg-yellow-600 border-accent !shadow-2xl"
                 >
                   <CardHeader>
                     <CardTitle className="font-fredoka text-xl justify-self-center md:justify-self-start">
@@ -61,6 +64,7 @@ export default function Page() {
           </CardContent>
         </Card>
       </CardContent>
+      <Leaf numberLeaf={20} />
     </Card>
   );
 }

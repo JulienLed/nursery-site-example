@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/src/component/header/header";
 import Footer from "@/src/component/footer/footer";
 import Deer from "@/src/component/animals";
+import Leaf from "@/src/component/leaf";
 
 export const metadata: Metadata = {
   title: "La crêche de Wavre",
@@ -38,6 +39,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <Leaf numberLeaf={15} />
       </body>
     </html>
   );

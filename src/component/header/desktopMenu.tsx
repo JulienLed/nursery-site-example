@@ -19,12 +19,15 @@ export default function DesktopMenu() {
             <NavigationMenuItem key={item.title} className="!shadow-xl">
               {item.content ? (
                 <>
-                  <NavigationMenuTrigger className="!transition-all !duration-200">
+                  <NavigationMenuTrigger className="!transition-all !duration-200 hover:!text-popover">
                     <NavigationMenuLink
                       asChild
                       className="hover:!bg-transparent"
                     >
-                      <Link className="!text-lg" href={item.path}>
+                      <Link
+                        className="!text-lg hover:!text-popover"
+                        href={item.path}
+                      >
                         {item.title}
                       </Link>
                     </NavigationMenuLink>
@@ -36,7 +39,12 @@ export default function DesktopMenu() {
                         asChild
                         className="text-md"
                       >
-                        <Link href={subItem.path}>{subItem.title}</Link>
+                        <Link
+                          href={subItem.path}
+                          className="hover:!text-popover"
+                        >
+                          {subItem.title}
+                        </Link>
                       </NavigationMenuLink>
                     ))}
                   </NavigationMenuContent>
@@ -46,7 +54,10 @@ export default function DesktopMenu() {
                   asChild
                   className={`${navigationMenuTriggerStyle()} !transition-all !duration-200`}
                 >
-                  <Link className="!text-lg" href={item.path}>
+                  <Link
+                    className="!text-lg hover:!text-popover"
+                    href={item.path}
+                  >
                     {item.title}
                   </Link>
                 </NavigationMenuLink>

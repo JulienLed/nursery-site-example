@@ -7,14 +7,14 @@ import NurseryMap from "@/src/component/map/nurseryMap";
 
 export default function Page() {
   return (
-    <Card className="max-w-full animate-fade-left duration-200 leading-8 sm:leading-10 !bg-amber-300 !border-none !shadow-2xl">
+    <Card className="max-w-full animate-fade-left duration-200 leading-8 sm:leading-10 !bg-accent !border-none !shadow-2xl">
       <CardHeader>
-        <CardTitle className="font-fredoka text-2xl">
+        <CardTitle className="font-fredoka text-3xl text-popover text-center">
           La crêche de Wavre
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <Card className="animate-fade-left delay-500 bg-amber-500 !border-none !shadow-2xl">
+        <Card className="animate-fade-left delay-500 bg-popover !border-none !shadow-2xl">
           <CardHeader>
             <CardTitle className="font-fredoka text-xl">Présentation</CardTitle>
           </CardHeader>
