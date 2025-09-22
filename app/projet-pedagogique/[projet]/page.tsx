@@ -21,7 +21,11 @@ interface Project {
   };
 }
 
-export default function Page({ params }: { params: { projet: string } }) {
+interface PageProps {
+  params: { projet: string };
+}
+
+export default function Page({ params }: PageProps) {
   const slug = params.projet;
 
   const projet = (menu[2].content as Project[]).find(
