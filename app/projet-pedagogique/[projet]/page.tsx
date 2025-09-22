@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   CardContent,
@@ -22,7 +24,7 @@ interface Project {
   };
 }
 
-export default async function Page({
+export default function Page({
   params,
 }: {
   params: Promise<{ projet: string }>;
