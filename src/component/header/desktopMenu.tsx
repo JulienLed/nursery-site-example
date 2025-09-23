@@ -7,7 +7,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { menu } from "../data/data";
+import { menu } from "../../data/data";
 import Link from "next/link";
 
 export default function DesktopMenu() {
@@ -19,13 +19,13 @@ export default function DesktopMenu() {
             <NavigationMenuItem key={item.title} className="!shadow-xl">
               {item.content ? (
                 <>
-                  <NavigationMenuTrigger className="!transition-all !duration-200 hover:!text-popover">
+                  <NavigationMenuTrigger className="!transition-all !duration-200 hover:!text-chart-4">
                     <NavigationMenuLink
                       asChild
                       className="hover:!bg-transparent"
                     >
                       <Link
-                        className="!text-lg hover:!text-popover"
+                        className="!text-lg hover:!text-chart-4"
                         href={item.path}
                       >
                         {item.title}
@@ -41,7 +41,7 @@ export default function DesktopMenu() {
                       >
                         <Link
                           href={subItem.path}
-                          className="hover:!text-popover"
+                          className="hover:!text-chart-4"
                         >
                           {subItem.title}
                         </Link>
@@ -55,7 +55,7 @@ export default function DesktopMenu() {
                   className={`${navigationMenuTriggerStyle()} !transition-all !duration-200`}
                 >
                   <Link
-                    className="!text-lg hover:!text-popover"
+                    className="!text-lg hover:!text-chart-4"
                     href={item.path}
                   >
                     {item.title}

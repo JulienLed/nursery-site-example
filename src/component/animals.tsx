@@ -2,28 +2,39 @@ import Image from "next/image";
 
 export default function Deer() {
   return (
-    <div className=" absolute-z-10">
-      <Image
-        className="absolute top-100 left-[2vw] -z-10 w-30"
-        alt="Image d'un cerf"
-        src={"/cerf.png"}
-        width={201}
-        height={510}
-      />
-      <Image
-        className="absolute top-200 right-[2vw] -z-10 w-30"
-        alt="Image d'un cerf"
-        src={"/cerf2.png"}
-        width={232}
-        height={427}
-      />
-      <Image
-        className="absolute top-350 left-[2vw] -z-10 w-30"
-        alt="Image d'un renard"
-        src={"/fox.png"}
-        width={266}
-        height={313}
-      />
+    <div className="absolute w-full h-full -z-10 pointer-events-none">
+      {/* Cerf gauche */}
+      <div className="absolute top-[100px] left-[20px] w-30">
+        <Image
+          src="/cerf.png"
+          alt="Cerf gauche"
+          width={201}
+          height={510}
+          className="w-full h-auto"
+        />
+      </div>
+
+      {/* Cerf droit */}
+      <div className="absolute top-[800px] right-[20px] w-30">
+        <Image
+          src="/cerf2.png"
+          alt="Cerf droit"
+          width={232}
+          height={427}
+          className="w-full h-auto"
+        />
+      </div>
+
+      {/* Renard */}
+      <div className="absolute top-[1500px] left-[20px] w-30">
+        <Image
+          src="/fox.png"
+          alt="Renard"
+          width={266}
+          height={313}
+          className="w-full h-auto"
+        />
+      </div>
     </div>
   );
 }

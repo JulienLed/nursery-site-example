@@ -5,14 +5,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { menu } from "@/src/component/data/data";
+import { menu } from "@/src/data/data";
 import Link from "next/link";
 
 export default function Page() {
   return (
     <Card className="max-w-full w-full animate-fade-left duration-200 leading-8 sm:leading-10 !bg-accent !border-none !shadow-2xl">
       <CardHeader>
-        <CardTitle className="font-fredoka text-2xl text-popover pb-5">
+        <CardTitle className="font-fredoka text-2xl text-chart-4 pb-5">
           Notre projet pédagogique
         </CardTitle>
         <CardDescription className="text-popover text-xl text-justify pb-5">

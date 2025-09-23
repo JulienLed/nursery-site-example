@@ -16,7 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { IoMenu } from "react-icons/io5";
 import Link from "next/link";
-import { menu } from "../data/data";
+import { menu } from "../../data/data";
 import { useState } from "react";
 
 export default function MobileMenu() {
@@ -25,13 +25,13 @@ export default function MobileMenu() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button variant={"outline"}>
+        <Button variant={"outline"} className="!border-none">
           <IoMenu size={20} />
         </Button>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className="!border-none">
         <SheetHeader>
-          <SheetTitle></SheetTitle>
+          <SheetTitle>Menu</SheetTitle>
         </SheetHeader>
         <Accordion type="single" collapsible className="mt-20">
           {menu.map((item) => {
@@ -39,7 +39,7 @@ export default function MobileMenu() {
               <AccordionItem
                 key={item.title}
                 value={item.title}
-                className="px-3 py-5 text-lg font-medium"
+                className="px-3 py-5 !text-lg font-medium !border-none"
               >
                 {item.content ? (
                   <>

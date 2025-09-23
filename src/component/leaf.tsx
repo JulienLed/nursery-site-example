@@ -20,39 +20,45 @@ interface Leaf {
 }
 
 export default function Leaf({ numberLeaf }: { numberLeaf: number }) {
-  const [pageHeight, setPageHeight] = useState("0px");
+  const [pageHeight, setPageHeight] = useState(300);
   const [leafs, setLeafs] = useState<Leaf[]>([]);
   const leafArr = [leaf1, leaf2, leaf3];
   const pathName = usePathname();
 
   useEffect(() => {
-    const height = Math.max(
-      document.body.scrollHeight,
-      document.documentElement.scrollHeight,
-      document.body.offsetHeight,
-      document.documentElement.offsetHeight,
-      document.body.clientHeight,
-      document.documentElement.clientHeight
-    );
-    setPageHeight(height + "px");
-    const leavesArr = [];
-    for (let i = 0; i < numberLeaf; i++) {
-      leavesArr.push({
-        id: i,
-        leaf: leafArr[Math.floor(Math.random() * 3)],
-        left: `${Math.floor(Math.random() * 100)}%`,
-        duration: Math.floor(Math.random() * 3) + height / 100,
-        width: Math.floor(Math.random() * 30) + 20,
-        rotate: `${Math.floor(Math.random() * 720)}deg`,
-        delay: Math.floor(Math.random() * 80),
-      });
-    }
-    setLeafs(leavesArr);
+    const onLoad = () => {
+      const height = Math.max(
+        document.documentElement.scrollHeight,
+        document.documentElement.offsetHeight,
+        document.documentElement.clientHeight
+      );
+      setPageHeight(height);
+      const leavesArr = [];
+      for (let i = 0; i < numberLeaf; i++) {
+        leavesArr.push({
+          id: i,
+          leaf: leafArr[Math.floor(Math.random() * 3)],
+          left: `${Math.floor(Math.random() * 100)}%`,
+          duration: Math.floor(Math.random() * 3) + height / 100,
+          width: Math.floor(Math.random() * 30) + 20,
+          rotate: `${Math.floor(Math.random() * 2000)}`,
+          delay: Math.floor(Math.random() * 50),
+        });
+      }
+      setLeafs(leavesArr);
+    };
+    window.addEventListener("resize", onLoad);
+    window.addEventListener("load", onLoad);
+    onLoad();
+    return () => {
+      removeEventListener("load", onLoad);
+      removeEventListener("resize", onLoad);
+    };
   }, [pathName]);
 
   return (
     <div
-      className="absolute w-full -top-70 z-100 pointer-events-none"
+      className="absolute w-full z-100 pointer-events-none overflow-hidden"
       style={{ height: pageHeight }}
     >
       {leafs.map((leaf: Leaf) => {
@@ -62,8 +68,8 @@ export default function Leaf({ numberLeaf }: { numberLeaf: number }) {
             className="absolute"
             style={{ left: leaf.left }}
             animate={{
-              y: ["0px", pageHeight],
-              rotateZ: ["0deg", leaf.rotate],
+              y: ["-50px", pageHeight + "px"],
+              rotateZ: ["0deg", Number(leaf.rotate) + "deg"],
             }}
             transition={{
               duration: leaf.duration,

@@ -5,18 +5,17 @@ import {
   CardDescription,
   CardContent,
 } from "@/components/ui/card";
-import { menu } from "@/src/component/data/data";
+import { menu } from "@/src/data/data";
 import Image from "next/image";
-import Leaf from "@/src/component/leaf";
 
 export default function Page() {
   return (
     <Card className="max-w-full w-full animate-fade-left duration-200 leading-8 sm:leading-10 !bg-accent !border-none !shadow-2xl">
       <CardHeader>
-        <CardTitle className="font-fredoka text-popover text-center text-3xl pb-5">
+        <CardTitle className="font-fredoka text-chart-4 text-center text-3xl pb-5">
           Notre Equipe
         </CardTitle>
-        <CardDescription className="text-popover text-xl text-justify pb-5">
+        <CardDescription className="text-chart-4 text-xl text-justify pb-5">
           Notre équipe est composée de professionnelles passionnées par la
           petite enfance. Chacune apporte son expérience, son énergie et sa
           sensibilité pour offrir aux enfants un environnement sécurisant,
@@ -50,7 +49,7 @@ export default function Page() {
                       src={member.img.src}
                       width={member.img.width}
                       height={member.img.height}
-                      className="w-[30vw] rounded-2xl justify-self-center"
+                      className="w-[30vw] min-w-[200px] rounded-2xl justify-self-center"
                     ></Image>
                     <p className="leading-7 p-5">{member.description}</p>
                     <p className="leading-7 px-5">
@@ -64,7 +63,6 @@ export default function Page() {
           </CardContent>
         </Card>
       </CardContent>
-      <Leaf numberLeaf={20} />
     </Card>
   );
 }

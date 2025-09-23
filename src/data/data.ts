@@ -187,21 +187,110 @@ export const menu = [
     path: "/services",
     img: { src: "/services.png", width: 1024, height: 1024 },
     content: [
-      { title: "Accueil", path: "/services/accueil" },
-      { title: "Soins et hygiène", path: "/services/soins-hygiene" },
-      { title: "Activités", path: "/services/activites" },
       {
-        title: "Communication avec les parents",
-        path: "/services/communication-parents",
+        title: "Soins et hygiène",
+        path: "/services/soins-hygiene",
+        description: `Le service "Soins et hygiène" est dédié à assurer le bien-être complet des enfants tout au long de la journée. 
+Il comprend la surveillance et l'accompagnement des routines de propreté, comme le lavage des mains et l'apprentissage de l'autonomie dans la toilette. 
+Nous veillons également à l'hygiène vestimentaire et corporelle de chaque enfant, en changeant les vêtements et les couches si nécessaire. 
+Les soins incluent l'application des produits adaptés à la peau fragile des enfants et la prévention des irritations ou allergies. 
+Les repas et collations sont préparés et servis dans des conditions strictes d'hygiène. 
+Chaque enfant est suivi individuellement pour détecter les besoins spécifiques en matière de santé et de confort. 
+Nous collaborons avec les parents pour garantir une continuité entre le domicile et la crèche. 
+Des routines régulières de nettoyage et de désinfection des espaces de vie sont effectuées. 
+L'objectif est de créer un environnement sûr, propre et stimulant, favorisant le développement physique et émotionnel. 
+Enfin, nos professionnels sont formés pour intervenir rapidement en cas de petit bobo ou de malaise.`,
+        img: {
+          src: "/projet1.png",
+          width: 1024,
+          height: 1024,
+          alt: "Soins et hygiène",
+        },
       },
-      { title: "Rituels", path: "/services/rituels" },
-      { title: "Sécurité", path: "/services/securite" },
+      {
+        title: "Activités",
+        path: "/services/activites",
+        description: `Le service "Activités" propose un large éventail d'animations visant le développement global de l'enfant. 
+Les activités sont planifiées en fonction de l'âge, des capacités et des centres d'intérêt de chaque enfant. 
+Elles incluent des ateliers créatifs, artistiques, sensoriels et moteurs pour stimuler l'imagination et la motricité fine et globale. 
+Des jeux collectifs favorisent la socialisation et l'apprentissage du partage et de la coopération. 
+Les activités linguistiques et musicales enrichissent le vocabulaire et éveillent les sens. 
+Chaque session est encadrée par des professionnels formés à observer et accompagner le développement individuel. 
+L'objectif est de créer un environnement ludique et éducatif où chaque enfant peut s'exprimer et progresser à son rythme. 
+Les activités en extérieur permettent de découvrir la nature et d'encourager la curiosité. 
+Des moments calmes et de relaxation sont également intégrés pour équilibrer l'énergie des enfants. 
+L'approche globale favorise le développement cognitif, émotionnel et social de manière harmonieuse.`,
+        img: {
+          src: "/projet2.png",
+          width: 1024,
+          height: 1024,
+          alt: "Activités",
+        },
+      },
+      {
+        title: "Rituels",
+        path: "/services/rituels",
+        description: `Le service "Rituels" vise à instaurer des routines sécurisantes et prévisibles pour les enfants. 
+Ces rituels quotidiens aident à structurer la journée et à réduire l'anxiété liée aux transitions. 
+Ils incluent les moments de repas, de sieste, de jeux et d'activités éducatives. 
+Les rituels favorisent l'autonomie et la responsabilisation de l'enfant dans ses gestes quotidiens. 
+Nous encourageons également les rituels sociaux, comme les salutations et les échanges verbaux, pour renforcer le sentiment d'appartenance au groupe. 
+Les histoires, chants et comptines font partie des rituels favorisant le langage et l'écoute. 
+Chaque enfant est accompagné individuellement pour intégrer les routines selon son rythme. 
+Les transitions entre les activités sont encadrées pour réduire le stress et maintenir la concentration. 
+Des rituels saisonniers et festifs viennent enrichir la vie quotidienne et développer la curiosité culturelle. 
+Le respect de ces routines contribue au bien-être émotionnel et à la stabilité affective des enfants.`,
+        img: {
+          src: "/projet3.png",
+          width: 1024,
+          height: 1024,
+          alt: "Rituels",
+        },
+      },
+      {
+        title: "Sécurité",
+        path: "/services/securite",
+        description: `Le service "Sécurité" assure que tous les enfants évoluent dans un environnement sûr et protégé. 
+Les locaux sont conçus pour minimiser les risques, avec des protections, des zones adaptées et des dispositifs de surveillance. 
+Chaque activité est encadrée par des professionnels formés à prévenir les accidents. 
+Les procédures d'urgence, comme l'évacuation et les premiers secours, sont régulièrement mises à jour et pratiquées. 
+La surveillance des enfants est constante, en intérieur comme en extérieur, pour garantir leur sécurité physique et émotionnelle. 
+Le matériel et les jouets sont contrôlés et entretenus pour éviter tout danger. 
+Nous collaborons étroitement avec les parents pour signaler tout problème de sécurité et appliquer les recommandations médicales. 
+Des formations continues sont suivies par le personnel pour rester à jour sur les normes de sécurité et les bonnes pratiques. 
+Les enfants sont initiés progressivement à la sécurité et aux comportements prudents. 
+L'objectif est de créer un cadre protecteur où les enfants peuvent explorer, apprendre et grandir en toute confiance.`,
+        img: {
+          src: "/projet4.png",
+          width: 1024,
+          height: 1024,
+          alt: "Secutite",
+        },
+      },
     ],
   },
   {
     title: "Tarif",
     path: "/tarif",
     img: { src: "/tarif.png", width: 1024, height: 1024 },
+    tarifs: [
+      {
+        jour: 2,
+        price: 600,
+      },
+      {
+        jour: 3,
+        price: 700,
+      },
+      {
+        jour: 4,
+        price: 800,
+      },
+      {
+        jour: 5,
+        price: 900,
+      },
+    ],
   },
   {
     title: "Contact",

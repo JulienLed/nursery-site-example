@@ -1,5 +1,5 @@
 import { Card, CardTitle, CardHeader, CardContent } from "@/components/ui/card";
-import { menu } from "@/src/component/data/data";
+import { menu } from "@/src/data/data";
 import Image from "next/image";
 import Link from "next/link";
 import { IoMdMail } from "react-icons/io";
@@ -9,7 +9,7 @@ export default function Page() {
   return (
     <Card className="max-w-full animate-fade-left duration-200 leading-8 sm:leading-10 !bg-accent !border-none !shadow-2xl">
       <CardHeader>
-        <CardTitle className="font-fredoka text-3xl text-popover text-center">
+        <CardTitle className="font-fredoka text-3xl text-chart-4 text-center">
           La crêche de Wavre
         </CardTitle>
       </CardHeader>
@@ -69,9 +69,12 @@ export default function Page() {
             <section id="map" className="flex justify-center">
               <NurseryMap />
             </section>
-            <section id="contactAgain" className="font-fredoka text-xl mt-10">
+            <section
+              id="contactAgain"
+              className="flex justify-center font-fredoka text-xl mt-10"
+            >
               <a
-                className="flex flex-col text-center sm:flex-row gap-2 items-center justify-center sm:items-center sm:justify-center hover:text-accent transition-colors duration-300 ease-in-out"
+                className="flex flex-col w-fit text-center sm:flex-row gap-2 items-center justify-center sm:items-center sm:justify-center hover:text-accent transition-colors duration-300 ease-in-out"
                 href="mailto:info@crechewavre.be"
                 target="_blank"
               >
