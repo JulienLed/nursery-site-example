@@ -51,7 +51,7 @@ export default function Page() {
                     id={el.title}
                   >
                     <Link href={el.path} className="flex flex-col text-center">
-                      <p className="font-fredoka text-center text-xl whitespace-nowrap">
+                      <p className="font-fredoka text-center text-xl">
                         {el.title}
                       </p>
 

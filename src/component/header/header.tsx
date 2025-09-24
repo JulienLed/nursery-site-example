@@ -33,12 +33,14 @@ export default function Header() {
       ) : (
         <div className="col-span-3 grid grid-cols-3 items-center">
           <div id="logo" className="w-20 ml-10 animate-fade-up col-span-1">
-            <Image
-              alt="Logo de la crêche"
-              src={logo}
-              width={648}
-              height={610}
-            />
+            <Link href={"/"}>
+              <Image
+                alt="Logo de la crêche"
+                src={logo}
+                width={648}
+                height={610}
+              />
+            </Link>
           </div>
           <div className="col-start-2 col-span-1 flex justify-center">
             <MobileMenu />

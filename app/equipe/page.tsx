@@ -49,7 +49,7 @@ export default function Page() {
                       src={member.img.src}
                       width={member.img.width}
                       height={member.img.height}
-                      className="w-[30vw] min-w-[200px] rounded-2xl justify-self-center"
+                      className="w-[30vw] min-w-[250px] rounded-2xl justify-self-center"
                     ></Image>
                     <p className="leading-7 p-5">{member.description}</p>
                     <p className="leading-7 px-5">

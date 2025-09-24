@@ -17,7 +17,7 @@ export default function Map() {
       center={position}
       zoom={15}
       scrollWheelZoom={false}
-      className="rounded-2xl shadow-2xl w-70 h-80 md:w-[40vw] md:h-[50vh]"
+      className="rounded-2xl shadow-2xl w-90 h-80 md:w-[40vw] md:h-[50vh]"
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

@@ -4,7 +4,7 @@ export default function Deer() {
   return (
     <div className="absolute w-full h-full -z-10 pointer-events-none">
       {/* Cerf gauche */}
-      <div className="absolute top-[100px] left-[20px] w-30">
+      <div className="absolute top-[70px] left-[20px] w-30">
         <Image
           src="/cerf.png"
           alt="Cerf gauche"
@@ -15,7 +15,7 @@ export default function Deer() {
       </div>
 
       {/* Cerf droit */}
-      <div className="absolute top-[800px] right-[20px] w-30">
+      <div className="absolute top-[850px] right-[20px] w-30">
         <Image
           src="/cerf2.png"
           alt="Cerf droit"
@@ -26,7 +26,7 @@ export default function Deer() {
       </div>
 
       {/* Renard */}
-      <div className="absolute top-[1500px] left-[20px] w-30">
+      <div className="absolute top-[1300px] left-[20px] w-30">
         <Image
           src="/fox.png"
           alt="Renard"

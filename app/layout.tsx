@@ -34,7 +34,7 @@ export default function RootLayout({
         <Header />
         <div className="relative w-full overflow-hidden flex-1 flex flex-col items-center">
           <main
-            className={`flex-1 flex flex-col items-center w-[90vw] sm:w-[70vw] my-10 sm:my-20`}
+            className={`flex-1 flex flex-col items-center w-[95vw] sm:w-[70vw] my-10 sm:my-20`}
           >
             {children}
             <Deer />

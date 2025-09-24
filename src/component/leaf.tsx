@@ -20,26 +20,20 @@ interface Leaf {
 }
 
 export default function Leaf({ numberLeaf }: { numberLeaf: number }) {
-  const [pageHeight, setPageHeight] = useState(300);
   const [leafs, setLeafs] = useState<Leaf[]>([]);
   const leafArr = [leaf1, leaf2, leaf3];
   const pathName = usePathname();
 
   useEffect(() => {
     const onLoad = () => {
-      const height = Math.max(
-        document.documentElement.scrollHeight,
-        document.documentElement.offsetHeight,
-        document.documentElement.clientHeight
-      );
-      setPageHeight(height);
       const leavesArr = [];
       for (let i = 0; i < numberLeaf; i++) {
         leavesArr.push({
           id: i,
           leaf: leafArr[Math.floor(Math.random() * 3)],
           left: `${Math.floor(Math.random() * 100)}%`,
-          duration: Math.floor(Math.random() * 3) + height / 100,
+          duration:
+            Math.floor(Math.random() * 10) + document.body.scrollHeight / 100,
           width: Math.floor(Math.random() * 30) + 20,
           rotate: `${Math.floor(Math.random() * 2000)}`,
           delay: Math.floor(Math.random() * 50),
@@ -57,10 +51,7 @@ export default function Leaf({ numberLeaf }: { numberLeaf: number }) {
   }, [pathName]);
 
   return (
-    <div
-      className="absolute w-full z-100 pointer-events-none overflow-hidden"
-      style={{ height: pageHeight }}
-    >
+    <div className="absolute w-full h-full z-100 pointer-events-none overflow-hidden">
       {leafs.map((leaf: Leaf) => {
         return (
           <motion.div
@@ -68,7 +59,7 @@ export default function Leaf({ numberLeaf }: { numberLeaf: number }) {
             className="absolute"
             style={{ left: leaf.left }}
             animate={{
-              y: ["-50px", pageHeight + "px"],
+              y: ["-50px", document.body.scrollHeight + "px"],
               rotateZ: ["0deg", Number(leaf.rotate) + "deg"],
             }}
             transition={{
@@ -86,7 +77,6 @@ export default function Leaf({ numberLeaf }: { numberLeaf: number }) {
               width={900}
               height={892}
               style={{ width: leaf.width }}
-              className="drop-shadow-2xl"
             />
           </motion.div>
         );
