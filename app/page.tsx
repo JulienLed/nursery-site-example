@@ -4,6 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { IoMdMail } from "react-icons/io";
 import NurseryMap from "@/src/component/map/nurseryMap";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Page d'accueil de la crêche de Wavre",
+  description: "La Page d'accueil de la crêche de Wavre",
+};
 
 export default function Page() {
   return (
@@ -56,7 +62,7 @@ export default function Page() {
                       </p>
 
                       <Image
-                        alt={el.title}
+                        alt={el.title + "image"}
                         src={el.img.src}
                         width={el.img.width}
                         height={el.img.height}

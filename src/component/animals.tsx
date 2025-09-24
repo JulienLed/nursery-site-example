@@ -11,6 +11,7 @@ export default function Deer() {
           width={201}
           height={510}
           className="w-full h-auto"
+          fetchPriority="high"
         />
       </div>
 
@@ -22,6 +23,7 @@ export default function Deer() {
           width={232}
           height={427}
           className="w-full h-auto"
+          fetchPriority="high"
         />
       </div>
 
@@ -33,6 +35,7 @@ export default function Deer() {
           width={266}
           height={313}
           className="w-full h-auto"
+          fetchPriority="high"
         />
       </div>
     </div>

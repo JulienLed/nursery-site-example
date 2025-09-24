@@ -6,6 +6,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { ContactForm } from "@/src/component/form";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact de la crêche de Wavre",
+  description: "La Page de contact de la crêche de Wavre",
+};
 
 export default function Page() {
   return (

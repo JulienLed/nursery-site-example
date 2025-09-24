@@ -7,6 +7,12 @@ import {
 } from "@/components/ui/card";
 import { menu } from "@/src/data/data";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Page d'équipe de la crêche de Wavre",
+  description: "La Page de l'équipe de la crêche de Wavre",
+};
 
 export default function Page() {
   return (
@@ -49,7 +55,7 @@ export default function Page() {
                       src={member.img.src}
                       width={member.img.width}
                       height={member.img.height}
-                      className="w-[30vw] min-w-[250px] rounded-2xl justify-self-center"
+                      className="w-[30vw] min-w-[230px] rounded-2xl justify-self-center"
                     ></Image>
                     <p className="leading-7 p-5">{member.description}</p>
                     <p className="leading-7 px-5">

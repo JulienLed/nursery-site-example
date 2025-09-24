@@ -25,7 +25,7 @@ export default function MobileMenu() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button variant={"outline"} className="!border-none">
+        <Button name="menu-button" variant={"outline"} className="!border-none">
           <IoMenu size={20} />
         </Button>
       </SheetTrigger>

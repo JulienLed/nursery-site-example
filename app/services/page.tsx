@@ -7,6 +7,12 @@ import {
 } from "@/components/ui/card";
 import { menu } from "@/src/data/data";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Page des services de la crêche de Wavre",
+  description: "La Page des services de la crêche de Wavre",
+};
 
 export default function Page() {
   return (

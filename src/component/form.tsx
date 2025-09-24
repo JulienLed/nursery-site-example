@@ -68,7 +68,7 @@ export function ContactForm() {
           required
         ></Input>
 
-        <Label htmlFor="phone">Téléphone</Label>
+        <Label htmlFor="phone">Téléphone: </Label>
         <Input
           id="phone"
           placeholder="010861220"

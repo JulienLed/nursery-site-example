@@ -39,7 +39,7 @@ export default function Page() {
         <Card className="flex flex-col items-center animate-fade-left delay-500 bg-popover !border-none !shadow-2xl">
           <div className="flex flex-col items-center gap-5 w-[60vw] sm:w-[50vw]">
             <Label htmlFor="days" className="text-xl whitespace-nowrap">
-              Le nombre de jours par semaine :
+              Jours par semaine :
             </Label>
             <Input
               id="days"
