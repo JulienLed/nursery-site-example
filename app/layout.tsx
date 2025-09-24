@@ -28,6 +28,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <meta
+        name="google-site-verification"
+        content="PckZlSlah8SBJUnyOXb3tLtjX-wWOXkvKr37Z8PIwqo"
+      />
       <body
         className={`relative flex flex-col items-center justify-center h-full min-h-screen bg-green-900 ${nunito.className} ${fredoka.variable}`}
       >
