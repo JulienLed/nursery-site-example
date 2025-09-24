@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, number } from "motion/react";
+import { motion } from "motion/react";
 import leaf1 from "@/public/leaf.png";
 import leaf2 from "@/public/leaf-2.png";
 import leaf3 from "@/public/leaf-3.png";
@@ -41,12 +41,10 @@ export default function Leaf({ numberLeaf }: { numberLeaf: number }) {
       }
       setLeafs(leavesArr);
     };
-    window.addEventListener("resize", onLoad);
     window.addEventListener("load", onLoad);
     onLoad();
     return () => {
       removeEventListener("load", onLoad);
-      removeEventListener("resize", onLoad);
     };
   }, [pathName, numberLeaf]);
 

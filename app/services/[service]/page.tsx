@@ -40,7 +40,7 @@ export default function Page({
         <CardContent>
           <Card className="!bg-popover !border-none !shadow-2xl">
             <CardContent className="grid grid-cols-1">
-              <div className="w-[30vw] min-w-[300px] justify-self-center py-5">
+              <div className="w-[30vw] min-w-[250px] justify-self-center py-5">
                 <Image
                   alt={service.img.alt}
                   src={service.img.src}
@@ -49,7 +49,7 @@ export default function Page({
                   className="rounded-2xl"
                 />
               </div>
-              <p className="px-10 py-5">{service.description}</p>
+              <p className="sm:px-10 py-5">{service.description}</p>
             </CardContent>
           </Card>
         </CardContent>

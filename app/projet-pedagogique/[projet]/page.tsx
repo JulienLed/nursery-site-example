@@ -50,7 +50,7 @@ export default function Page({
         <CardContent>
           <Card className="!bg-popover !border-none">
             <CardContent className="grid grid-cols-1">
-              <div className="w-[30vw] min-w-[300px] justify-self-center py-5">
+              <div className="w-[30vw] min-w-[250px] justify-self-center py-5">
                 <Image
                   alt={projet.img.alt}
                   src={projet.img.src}
@@ -59,7 +59,7 @@ export default function Page({
                   className="rounded-2xl"
                 />
               </div>
-              <ul className="list-disc px-10 py-5">
+              <ul className="list-disc sm:px-10 py-5">
                 {projet.details.map((detail, index) => {
                   return (
                     <li key={index}>

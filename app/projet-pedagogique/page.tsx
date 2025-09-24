@@ -29,7 +29,7 @@ export default function Page() {
             >
               <Card className="flex flex-col !border-none bg-popover hover:bg-yellow-400 !shadow-2xl transition-all duration-200 ease-in-out">
                 <CardHeader>
-                  <CardTitle className="font-fredoka text-xl justify-self-center md:justify-self-center">
+                  <CardTitle className="font-fredoka text-xl text-center justify-self-center md:justify-self-center">
                     {projet.title}
                   </CardTitle>
                 </CardHeader>

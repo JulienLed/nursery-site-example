@@ -38,7 +38,7 @@ export function ContactForm() {
   return (
     <form className="w-full flex flex-col gap-5" onSubmit={handleSubmit}>
       <section className="grid grid-cols-2 gap-5">
-        <Label htmlFor="name">Votre Nom: </Label>
+        <Label htmlFor="name">Nom: </Label>
         <Input
           id="name"
           placeholder="Dupond"
@@ -48,7 +48,7 @@ export function ContactForm() {
           required
         ></Input>
 
-        <Label htmlFor="surname">Votre Prénom: </Label>
+        <Label htmlFor="surname">Prénom: </Label>
         <Input
           id="surname"
           placeholder="Jean"
@@ -58,7 +58,7 @@ export function ContactForm() {
           required
         ></Input>
 
-        <Label htmlFor="email">Votre adresse email: </Label>
+        <Label htmlFor="email">Email: </Label>
         <Input
           id="email"
           placeholder="jeandupond@example.be"
@@ -68,7 +68,7 @@ export function ContactForm() {
           required
         ></Input>
 
-        <Label htmlFor="phone">Votre numéro de téléphone</Label>
+        <Label htmlFor="phone">Téléphone</Label>
         <Input
           id="phone"
           placeholder="010861220"
