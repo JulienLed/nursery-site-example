@@ -40,7 +40,7 @@ export const menu = [
     ],
   },
   {
-    title: "Projet Pédagogique",
+    title: "Projet",
     path: "/projet-pedagogique",
     img: { src: "/projet.png", width: 1024, height: 1024 },
     content: [
@@ -270,7 +270,7 @@ L'objectif est de créer un cadre protecteur où les enfants peuvent explorer, a
     ],
   },
   {
-    title: "Tarif",
+    title: "Tarifs",
     path: "/tarif",
     img: { src: "/tarif.png", width: 1024, height: 1024 },
     tarifs: [

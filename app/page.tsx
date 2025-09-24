@@ -16,7 +16,7 @@ export default function Page() {
     <Card className="max-w-full animate-fade-left duration-200 leading-8 sm:leading-10 !bg-accent !border-none !shadow-2xl">
       <CardHeader>
         <CardTitle className="font-fredoka text-3xl text-chart-4 text-center">
-          La crêche de Wavre
+          La crèche de Wavre
         </CardTitle>
       </CardHeader>
       <CardContent>
