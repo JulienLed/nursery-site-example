@@ -17,8 +17,9 @@ export default function Page() {
           </CardTitle>
         </CardHeader>
         <CardDescription className="text-chart-4 text-xl text-justify p-5">
-          N'hésitez pas à nous contacter pour plus d'informations sur nos
-          services !
+          {
+            "N'hésitez pas à nous contacter pour plus d'informations sur nos services !"
+          }
         </CardDescription>
         <CardContent>
           <Card className="animate-fade-left delay-500 bg-popover !border-none !shadow-2xl">

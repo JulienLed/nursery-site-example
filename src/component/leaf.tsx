@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, number } from "motion/react";
 import leaf1 from "@/public/leaf.png";
 import leaf2 from "@/public/leaf-2.png";
 import leaf3 from "@/public/leaf-3.png";
@@ -21,11 +21,11 @@ interface Leaf {
 
 export default function Leaf({ numberLeaf }: { numberLeaf: number }) {
   const [leafs, setLeafs] = useState<Leaf[]>([]);
-  const leafArr = [leaf1, leaf2, leaf3];
   const pathName = usePathname();
 
   useEffect(() => {
     const onLoad = () => {
+      const leafArr = [leaf1, leaf2, leaf3];
       const leavesArr = [];
       for (let i = 0; i < numberLeaf; i++) {
         leavesArr.push({
@@ -48,7 +48,7 @@ export default function Leaf({ numberLeaf }: { numberLeaf: number }) {
       removeEventListener("load", onLoad);
       removeEventListener("resize", onLoad);
     };
-  }, [pathName]);
+  }, [pathName, numberLeaf]);
 
   return (
     <div className="absolute w-full h-full z-100 pointer-events-none overflow-hidden">

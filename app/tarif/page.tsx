@@ -20,7 +20,7 @@ export default function Page() {
   const handleValidate = () =>
     setPrice(() => {
       if (value === 1) return 90;
-      let tarif = tarifsArr?.find((tarif) => tarif.jour === value);
+      const tarif = tarifsArr?.find((tarif) => tarif.jour === value);
       if (!tarif) return 0;
       return tarif.price;
     });
