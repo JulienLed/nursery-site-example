@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card";
 import { menu } from "@/src/data/data";
 import Image from "next/image";
-import { use } from "react";
+import { use, useEffect, useState } from "react";
 
 interface Project {
   title: string;

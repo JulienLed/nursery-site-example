@@ -5,7 +5,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { menu } from "@/src/data/data";
 import Link from "next/link";
 import { Metadata } from "next";
 
@@ -14,7 +13,19 @@ export const metadata: Metadata = {
   description: "La Page des projets de la crêche de Wavre",
 };
 
-export default function Page() {
+const fetchProject = async () => {
+  const response = await fetch("/api/projet", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const projet = await response.json();
+  return projet;
+};
+
+export default async function Page() {
+  const data = await fetchProject();
   return (
     <Card className="max-w-full w-full animate-fade-left duration-200 leading-8 sm:leading-10 !bg-accent !border-none !shadow-2xl">
       <CardHeader>
@@ -26,23 +37,34 @@ export default function Page() {
         </CardDescription>
       </CardHeader>
       <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-10 animate-fade-left delay-500 bg-accent !border-none rounded-2xl m-5 p-10">
-        {menu[2].content?.map((projet) => {
-          return (
-            <Link
-              key={projet.title}
-              href={projet.path}
-              className="hover:scale-105 rounded-2xl transition-all duration-200 ease-in-out"
-            >
-              <Card className="flex flex-col !border-none bg-popover hover:bg-yellow-400 !shadow-2xl transition-all duration-200 ease-in-out">
-                <CardHeader>
-                  <CardTitle className="font-fredoka text-xl text-center justify-self-center md:justify-self-center">
-                    {projet.title}
-                  </CardTitle>
-                </CardHeader>
-              </Card>
-            </Link>
-          );
-        })}
+        {data.map(
+          (projet: {
+            Description: string;
+            Details: string[];
+            Titre: string;
+            ImageProject: {
+              height: number;
+              width: number;
+              url: string;
+            };
+          }) => {
+            return (
+              <Link
+                key={projet.Titre}
+                href={projet.path}
+                className="hover:scale-105 rounded-2xl transition-all duration-200 ease-in-out"
+              >
+                <Card className="flex flex-col !border-none bg-popover hover:bg-yellow-400 !shadow-2xl transition-all duration-200 ease-in-out">
+                  <CardHeader>
+                    <CardTitle className="font-fredoka text-xl text-center justify-self-center md:justify-self-center">
+                      {projet.Titre}
+                    </CardTitle>
+                  </CardHeader>
+                </Card>
+              </Link>
+            );
+          }
+        )}
       </CardContent>
     </Card>
   );
