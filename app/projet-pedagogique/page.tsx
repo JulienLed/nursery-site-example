@@ -14,14 +14,14 @@ export const metadata: Metadata = {
 };
 
 const fetchProject = async () => {
-  const response = await fetch("/api/projet", {
-    method: "GET",
+  const response = await fetch(`${process.env.API_STRAPI}/projets?populate=*`, {
     headers: {
-      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.API_KEY_STRAPI}`,
     },
+    cache: "no-store",
   });
-  const projet = await response.json();
-  return projet;
+  const json = await response.json();
+  return json.data;
 };
 
 export default async function Page() {
@@ -47,11 +47,12 @@ export default async function Page() {
               width: number;
               url: string;
             };
+            Slug: string;
           }) => {
             return (
               <Link
                 key={projet.Titre}
-                href={projet.path}
+                href={`${process.env.API_STRAPI}/projet-pedagogique/${projet.Slug}`}
                 className="hover:scale-105 rounded-2xl transition-all duration-200 ease-in-out"
               >
                 <Card className="flex flex-col !border-none bg-popover hover:bg-yellow-400 !shadow-2xl transition-all duration-200 ease-in-out">
