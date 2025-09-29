@@ -12,9 +12,10 @@ import {
 import Link from "next/link";
 import { Data } from "@/src/data/dataType";
 import { useMenus } from "@/src/hook/hook";
+import { baseURL } from "@/src/hook/hook";
 
 export default function DesktopMenu() {
-  const { data, baseURL } = useMenus();
+  const { data } = useMenus();
 
   return (
     <NavigationMenu viewport={false} className="!font-fredoka">

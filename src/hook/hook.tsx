@@ -3,6 +3,11 @@
 import { useState, useEffect } from "react";
 import { Data } from "../data/dataType";
 
+export const baseURL =
+  process.env.NODE_ENV === "production"
+    ? process.env.NEXT_PUBLIC_FRONT_URL
+    : "http://localhost:3000";
+
 export const useWidthScreen = () => {
   const [screenWidth, setScreenWidth] = useState(1024);
 
@@ -20,10 +25,6 @@ export const useWidthScreen = () => {
 
 export const useMenus = () => {
   const [data, setData] = useState<Data[]>([]);
-  const baseURL =
-    process.env.NODE_ENV === "production"
-      ? process.env.NEXT_PUBLIC_BASE_URL
-      : "http://localhost:3000";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,16 +43,12 @@ export const useMenus = () => {
 
     fetchData();
   }, []);
-  return { data, baseURL };
+  return { data };
 };
 
 export const useProjects = () => {
   type Projet = Data["projets"];
   const [data, setData] = useState<Projet[]>([]);
-  const baseURL =
-    process.env.NODE_ENV === "production"
-      ? process.env.NEXT_PUBLIC_BASE_URL
-      : "http://localhost:3000";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -66,15 +63,11 @@ export const useProjects = () => {
 
     fetchData();
   }, []);
-  return { data, baseURL };
+  return { data };
 };
 
 export const useServices = () => {
   const [data, setData] = useState<Data[]>([]);
-  const baseURL =
-    process.env.NODE_ENV === "production"
-      ? process.env.NEXT_PUBLIC_BASE_URL
-      : "http://localhost:3000";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -89,16 +82,12 @@ export const useServices = () => {
 
     fetchData();
   }, []);
-  return { data, baseURL };
+  return { data };
 };
 
 export const useTarifs = () => {
   type Tarif = Data["Tarif"];
   const [data, setData] = useState<Tarif[]>([]);
-  const baseURL =
-    process.env.NODE_ENV === "production"
-      ? process.env.NEXT_PUBLIC_BASE_URL
-      : "http://localhost:3000";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -113,5 +102,5 @@ export const useTarifs = () => {
 
     fetchData();
   }, []);
-  return { data, baseURL };
+  return { data };
 };

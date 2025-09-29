@@ -19,10 +19,11 @@ import Link from "next/link";
 import { useState } from "react";
 import { Data } from "@/src/data/dataType";
 import { useMenus } from "@/src/hook/hook";
+import { baseURL } from "@/src/hook/hook";
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
-  const { data, baseURL } = useMenus();
+  const { data } = useMenus();
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
