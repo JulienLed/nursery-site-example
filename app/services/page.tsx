@@ -7,7 +7,6 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import { Metadata } from "next";
-import { baseURL } from "@/src/hook/hook";
 
 export const metadata: Metadata = {
   title: "Page des services de la crêche de Wavre",
@@ -29,6 +28,10 @@ const fetchServices = async () => {
 };
 
 export default async function Page() {
+  const baseURL =
+    process.env.NODE_ENV === "production"
+      ? process.env.NEXT_PUBLIC_FRONT_URL
+      : "http://localhost:3000";
   const data = await fetchServices();
   return (
     <Card className="max-w-full w-full animate-fade-left duration-200 leading-8 sm:leading-10 !bg-accent !border-none !shadow-2xl">

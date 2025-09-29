@@ -3,11 +3,6 @@
 import { useState, useEffect } from "react";
 import { Data } from "../data/dataType";
 
-export const baseURL =
-  process.env.NODE_ENV === "production"
-    ? process.env.NEXT_PUBLIC_FRONT_URL
-    : "http://localhost:3000";
-
 export const useWidthScreen = () => {
   const [screenWidth, setScreenWidth] = useState(1024);
 

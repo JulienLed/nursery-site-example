@@ -19,11 +19,14 @@ import Link from "next/link";
 import { useState } from "react";
 import { Data } from "@/src/data/dataType";
 import { useMenus } from "@/src/hook/hook";
-import { baseURL } from "@/src/hook/hook";
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
   const { data } = useMenus();
+  const baseURL =
+    process.env.NODE_ENV === "production"
+      ? process.env.NEXT_PUBLIC_FRONT_URL
+      : "http://localhost:3000";
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
