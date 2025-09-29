@@ -42,7 +42,7 @@ export type Data = {
     };
   }[];
   Tarif: {
-    jour: number;
-    price: number;
+    Jour: number;
+    Price: number;
   };
 };

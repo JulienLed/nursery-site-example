@@ -8,6 +8,8 @@ import {
 import Image from "next/image";
 import { Metadata } from "next";
 import { Data } from "@/src/data/dataType";
+import { Suspense } from "react";
+import Loader from "@/src/component/loader";
 
 export const metadata: Metadata = {
   title: "Page d'équipe de la crêche de Wavre",
@@ -52,34 +54,36 @@ export default async function Page() {
             </CardTitle>
           </CardHeader>
           <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-10 animate-fade-left delay-500 bg-popover !border-none">
-            {data.map((member: Member) => {
-              return (
-                <Card
-                  key={member.Name}
-                  className="flex flex-col bg-yellow-600 border-accent !shadow-2xl"
-                >
-                  <CardHeader>
-                    <CardTitle className="font-fredoka text-xl justify-self-center md:justify-self-start">
-                      {member.Name} - {member.Role}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <Image
-                      alt={member.Name}
-                      src={member.Image[0].url}
-                      width={member.Image[0].width}
-                      height={member.Image[0].height}
-                      className="w-[30vw] min-w-[230px] rounded-2xl justify-self-center"
-                    ></Image>
-                    <p className="leading-7 p-5">{member.Description}</p>
-                    <p className="leading-7 px-5">
-                      <span className="font-bold">Son petit plus: </span>
-                      {member.FunFact}
-                    </p>
-                  </CardContent>
-                </Card>
-              );
-            })}
+            <Suspense fallback={<Loader />}>
+              {data.map((member: Member) => {
+                return (
+                  <Card
+                    key={member.Name}
+                    className="flex flex-col bg-yellow-600 border-accent !shadow-2xl"
+                  >
+                    <CardHeader>
+                      <CardTitle className="font-fredoka text-xl justify-self-center md:justify-self-start">
+                        {member.Name} - {member.Role}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <Image
+                        alt={member.Name}
+                        src={member.Image[0].url}
+                        width={member.Image[0].width}
+                        height={member.Image[0].height}
+                        className="w-[30vw] min-w-[230px] rounded-2xl justify-self-center"
+                      ></Image>
+                      <p className="leading-7 p-5">{member.Description}</p>
+                      <p className="leading-7 px-5">
+                        <span className="font-bold">Son petit plus: </span>
+                        {member.FunFact}
+                      </p>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </Suspense>
           </CardContent>
         </Card>
       </CardContent>

@@ -91,3 +91,27 @@ export const useServices = () => {
   }, []);
   return { data, baseURL };
 };
+
+export const useTarifs = () => {
+  type Tarif = Data["Tarif"];
+  const [data, setData] = useState<Tarif[]>([]);
+  const baseURL =
+    process.env.NODE_ENV === "production"
+      ? process.env.NEXT_PUBLIC_BASE_URL
+      : "http://localhost:3000";
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`/api/tarifs`);
+        const resJson = await res.json();
+        setData(resJson);
+      } catch (err) {
+        console.error("Erreur fetch menu:", err);
+      }
+    };
+
+    fetchData();
+  }, []);
+  return { data, baseURL };
+};

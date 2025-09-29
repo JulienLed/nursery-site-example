@@ -10,19 +10,20 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
-import { menu } from "@/src/data/data";
 import { Button } from "@/components/ui/button";
+import { useTarifs } from "@/src/hook/hook";
 
 export default function Page() {
-  const tarifsArr = menu[4].tarifs;
+  const { data } = useTarifs();
+  const tarifsArr = data;
   const [value, setValue] = useState(0);
   const [price, setPrice] = useState(0);
   const handleValidate = () =>
     setPrice(() => {
       if (value === 1) return 90;
-      const tarif = tarifsArr?.find((tarif) => tarif.jour === value);
+      const tarif = tarifsArr?.find((tarif) => tarif.Jour === value);
       if (!tarif) return 0;
-      return tarif.price;
+      return tarif.Price;
     });
   return (
     <Card className="max-w-full w-full animate-fade-left duration-200 leading-8 sm:leading-10 !bg-accent !border-none !shadow-2xl">

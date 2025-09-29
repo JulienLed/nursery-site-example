@@ -5,6 +5,8 @@ import { IoMdMail } from "react-icons/io";
 import NurseryMap from "@/src/component/map/nurseryMap";
 import type { Metadata } from "next";
 import { Data } from "@/src/data/dataType";
+import Loader from "@/src/component/loader";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Page d'accueil de la crêche de Wavre",
@@ -24,7 +26,6 @@ const fetchProject = async () => {
 
 export default async function Page() {
   const data = await fetchProject();
-  console.log(data);
   return (
     <Card className="max-w-full animate-fade-left duration-200 leading-8 sm:leading-10 !bg-accent !border-none !shadow-2xl">
       <CardHeader>
@@ -61,29 +62,34 @@ export default async function Page() {
               id="pages"
               className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 my-10"
             >
-              {data.map((el: Data) => {
-                if (!el.Image) return;
-                return (
-                  <div
-                    className="flex flex-col gap-5 hover:scale-105 hover:text-accent duration-300 ease-in-out"
-                    key={el.Titre}
-                    id={el.Titre}
-                  >
-                    <Link href={el.Path} className="flex flex-col text-center">
-                      <p className="font-fredoka text-center text-xl">
-                        {el.Titre}
-                      </p>
+              <Suspense fallback={<Loader />}>
+                {data.map((el: Data) => {
+                  if (!el.Image) return;
+                  return (
+                    <div
+                      className="flex flex-col gap-5 hover:scale-105 hover:text-accent duration-300 ease-in-out"
+                      key={el.Titre}
+                      id={el.Titre}
+                    >
+                      <Link
+                        href={el.Path}
+                        className="flex flex-col text-center"
+                      >
+                        <p className="font-fredoka text-center text-xl">
+                          {el.Titre}
+                        </p>
 
-                      <Image
-                        alt={el.Titre + " image"}
-                        src={el.Image[0].url}
-                        width={el.Image[0].width}
-                        height={el.Image[0].height}
-                      />
-                    </Link>
-                  </div>
-                );
-              })}
+                        <Image
+                          alt={el.Titre + " image"}
+                          src={el.Image[0].url}
+                          width={el.Image[0].width}
+                          height={el.Image[0].height}
+                        />
+                      </Link>
+                    </div>
+                  );
+                })}
+              </Suspense>
             </section>
             <section id="map" className="flex justify-center">
               <NurseryMap />
