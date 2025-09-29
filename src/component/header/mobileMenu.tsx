@@ -16,7 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { IoMenu } from "react-icons/io5";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Data } from "@/src/data/dataType";
 import { useMenus } from "@/src/hook/hook";
 

@@ -33,35 +33,35 @@ export default function Page({
 
   const projet = projets.find((p) => p.Slug === slug);
 
-  if (!projet) return <div>Projet introuvable</div>;
-
   return (
     <div>
       <Suspense fallback={<Loader />}>
         <Card className="max-w-full w-full animate-fade-left duration-200 leading-8 sm:leading-10 !bg-accent !border-none !shadow-2xl">
           <CardHeader>
             <CardTitle className="font-fredoka text-2xl text-chart-4">
-              {projet.Titre}
+              {projet?.Titre}
             </CardTitle>
             <CardDescription className="text-xl text-chart-4">
-              {projet.Description}
+              {projet?.Description}
             </CardDescription>
           </CardHeader>
           <CardContent>
             <Card className="!bg-popover !border-none">
               <CardContent className="grid grid-cols-1">
                 <div className="w-[30vw] min-w-[250px] justify-self-center py-5">
-                  <Image
-                    alt={projet.Titre + " Image"}
-                    src={projet.ImageProjet.url}
-                    width={projet.ImageProjet.width}
-                    height={projet.ImageProjet.height}
-                    className="rounded-2xl"
-                    priority
-                  />
+                  {projet?.ImageProjet.url && (
+                    <Image
+                      alt={projet?.Titre + " Image"}
+                      src={projet?.ImageProjet.url}
+                      width={projet?.ImageProjet.width}
+                      height={projet?.ImageProjet.height}
+                      className="rounded-2xl"
+                      priority
+                    />
+                  )}
                 </div>
                 <ul className="list-disc sm:px-10 py-5">
-                  {projet.Details.map((detail, index) => (
+                  {projet?.Details.map((detail, index) => (
                     <li key={index}>
                       <h2>{detail}</h2>
                     </li>
