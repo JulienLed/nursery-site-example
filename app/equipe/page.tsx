@@ -5,16 +5,30 @@ import {
   CardDescription,
   CardContent,
 } from "@/components/ui/card";
-import { menu } from "@/src/data/data";
 import Image from "next/image";
 import { Metadata } from "next";
+import { Data } from "@/src/data/dataType";
 
 export const metadata: Metadata = {
   title: "Page d'équipe de la crêche de Wavre",
   description: "La Page de l'équipe de la crêche de Wavre",
 };
 
-export default function Page() {
+export type Member = Data["Member"];
+
+const fetchTeam = async () => {
+  const response = await fetch(`${process.env.API_STRAPI}/members?populate=*`, {
+    headers: {
+      Authorization: `Bearer ${process.env.API_KEY_STRAPI}`,
+    },
+    cache: "no-store",
+  });
+  const json = await response.json();
+  return json.data;
+};
+
+export default async function Page() {
+  const data = await fetchTeam();
   return (
     <Card className="max-w-full w-full animate-fade-left duration-200 leading-8 sm:leading-10 !bg-accent !border-none !shadow-2xl">
       <CardHeader>
@@ -38,29 +52,29 @@ export default function Page() {
             </CardTitle>
           </CardHeader>
           <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-10 animate-fade-left delay-500 bg-popover !border-none">
-            {menu[1].members?.map((member) => {
+            {data.map((member: Member) => {
               return (
                 <Card
-                  key={member.name}
+                  key={member.Name}
                   className="flex flex-col bg-yellow-600 border-accent !shadow-2xl"
                 >
                   <CardHeader>
                     <CardTitle className="font-fredoka text-xl justify-self-center md:justify-self-start">
-                      {member.name} - {member.role}
+                      {member.Name} - {member.Role}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <Image
-                      alt={member.name}
-                      src={member.img.src}
-                      width={member.img.width}
-                      height={member.img.height}
+                      alt={member.Name}
+                      src={member.Image[0].url}
+                      width={member.Image[0].width}
+                      height={member.Image[0].height}
                       className="w-[30vw] min-w-[230px] rounded-2xl justify-self-center"
                     ></Image>
-                    <p className="leading-7 p-5">{member.description}</p>
+                    <p className="leading-7 p-5">{member.Description}</p>
                     <p className="leading-7 px-5">
                       <span className="font-bold">Son petit plus: </span>
-                      {member.funFact}
+                      {member.FunFact}
                     </p>
                   </CardContent>
                 </Card>

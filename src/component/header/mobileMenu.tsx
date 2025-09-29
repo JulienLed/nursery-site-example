@@ -16,11 +16,13 @@ import {
 import { Button } from "@/components/ui/button";
 import { IoMenu } from "react-icons/io5";
 import Link from "next/link";
-import { menu } from "../../data/data";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Data } from "@/src/data/dataType";
+import { useMenus } from "@/src/hook/hook";
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
+  const { data, baseURL } = useMenus();
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -34,41 +36,50 @@ export default function MobileMenu() {
           <SheetTitle>Menu</SheetTitle>
         </SheetHeader>
         <Accordion type="single" collapsible className="mt-20">
-          {menu.map((item) => {
-            return (
-              <AccordionItem
-                key={item.title}
-                value={item.title}
-                className="px-3 py-5 !text-lg font-medium !border-none"
-              >
-                {item.content ? (
-                  <>
-                    <AccordionTrigger className="text-lg font-medium !py-1">
-                      {item.title}
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      {item.content.map((subTitle) => {
-                        return (
-                          <div key={subTitle.title} className="p-2">
-                            <Link
-                              href={subTitle.path}
-                              onClick={() => setOpen(false)}
-                            >
-                              {subTitle.title}
-                            </Link>
-                          </div>
-                        );
-                      })}
-                    </AccordionContent>
-                  </>
-                ) : (
-                  <Link href={item.path} onClick={() => setOpen(false)}>
-                    {item.title}
-                  </Link>
-                )}
-              </AccordionItem>
-            );
-          })}
+          {data.map((item: Data) => (
+            <AccordionItem
+              key={item.Titre}
+              value={item.Titre}
+              className="px-3 py-5 !text-lg font-medium !border-none"
+            >
+              {(item.projets && item.projets.length > 0) ||
+              (item.services && item.services.length > 0) ? (
+                <>
+                  <AccordionTrigger className="text-lg font-medium !py-1">
+                    {item.Titre}
+                  </AccordionTrigger>
+                  <AccordionContent aria-description={item.Titre}>
+                    {item.projets &&
+                      item.projets.map((projet) => (
+                        <div key={projet.Slug} className="p-2">
+                          <Link
+                            href={`${baseURL}/projet-pedagogique/${projet.Slug}`}
+                            onClick={() => setOpen(false)}
+                          >
+                            {projet.Titre}
+                          </Link>
+                        </div>
+                      ))}
+                    {item.services &&
+                      item.services.map((service) => (
+                        <div key={service.Slug} className="p-2">
+                          <Link
+                            href={`${baseURL}/services/${service.Slug}`}
+                            onClick={() => setOpen(false)}
+                          >
+                            {service.Titre}
+                          </Link>
+                        </div>
+                      ))}
+                  </AccordionContent>
+                </>
+              ) : (
+                <Link href={item.Path} onClick={() => setOpen(false)}>
+                  {item.Titre}
+                </Link>
+              )}
+            </AccordionItem>
+          ))}
         </Accordion>
       </SheetContent>
     </Sheet>

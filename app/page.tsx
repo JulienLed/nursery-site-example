@@ -1,17 +1,30 @@
 import { Card, CardTitle, CardHeader, CardContent } from "@/components/ui/card";
-import { menu } from "@/src/data/data";
 import Image from "next/image";
 import Link from "next/link";
 import { IoMdMail } from "react-icons/io";
 import NurseryMap from "@/src/component/map/nurseryMap";
 import type { Metadata } from "next";
+import { Data } from "@/src/data/dataType";
 
 export const metadata: Metadata = {
   title: "Page d'accueil de la crêche de Wavre",
   description: "La Page d'accueil de la crêche de Wavre",
 };
 
-export default function Page() {
+const fetchProject = async () => {
+  const response = await fetch(`${process.env.API_STRAPI}/menus?populate=*`, {
+    headers: {
+      Authorization: `Bearer ${process.env.API_KEY_STRAPI}`,
+    },
+    cache: "no-store",
+  });
+  const json = await response.json();
+  return json.data;
+};
+
+export default async function Page() {
+  const data = await fetchProject();
+  console.log(data);
   return (
     <Card className="max-w-full animate-fade-left duration-200 leading-8 sm:leading-10 !bg-accent !border-none !shadow-2xl">
       <CardHeader>
@@ -48,24 +61,24 @@ export default function Page() {
               id="pages"
               className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 my-10"
             >
-              {menu.map((el) => {
-                if (!el.img) return;
+              {data.map((el: Data) => {
+                if (!el.Image) return;
                 return (
                   <div
                     className="flex flex-col gap-5 hover:scale-105 hover:text-accent duration-300 ease-in-out"
-                    key={el.title}
-                    id={el.title}
+                    key={el.Titre}
+                    id={el.Titre}
                   >
-                    <Link href={el.path} className="flex flex-col text-center">
+                    <Link href={el.Path} className="flex flex-col text-center">
                       <p className="font-fredoka text-center text-xl">
-                        {el.title}
+                        {el.Titre}
                       </p>
 
                       <Image
-                        alt={el.title + "image"}
-                        src={el.img.src}
-                        width={el.img.width}
-                        height={el.img.height}
+                        alt={el.Titre + " image"}
+                        src={el.Image[0].url}
+                        width={el.Image[0].width}
+                        height={el.Image[0].height}
                       />
                     </Link>
                   </div>
