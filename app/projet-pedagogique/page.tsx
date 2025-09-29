@@ -56,7 +56,7 @@ export default async function Page() {
             return (
               <Link
                 key={projet.Titre}
-                href={`${baseURL}/projet-pedagogique/${projet.Slug}`}
+                href={`/projet-pedagogique/${projet.Slug}`}
                 className="hover:scale-105 rounded-2xl transition-all duration-200 ease-in-out"
               >
                 <Card className="flex flex-col !border-none bg-popover hover:bg-yellow-400 !shadow-2xl transition-all duration-200 ease-in-out">

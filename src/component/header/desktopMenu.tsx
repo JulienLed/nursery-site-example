@@ -49,7 +49,7 @@ export default function DesktopMenu() {
                       className="text-md"
                     >
                       <Link
-                        href={`${baseURL}/projet-pedagogique/${projet.Slug}`}
+                        href={`/projet-pedagogique/${projet.Slug}`}
                         className="hover:!text-chart-4"
                       >
                         {projet.Titre}
@@ -82,7 +82,7 @@ export default function DesktopMenu() {
                       className="text-md"
                     >
                       <Link
-                        href={`${baseURL}/services/${service.Slug}`}
+                        href={`/services/${service.Slug}`}
                         className="hover:!text-chart-4"
                       >
                         {service.Titre}

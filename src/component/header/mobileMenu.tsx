@@ -57,7 +57,7 @@ export default function MobileMenu() {
                       item.projets.map((projet) => (
                         <div key={projet.Slug} className="p-2">
                           <Link
-                            href={`${baseURL}/projet-pedagogique/${projet.Slug}`}
+                            href={`/projet-pedagogique/${projet.Slug}`}
                             onClick={() => setOpen(false)}
                           >
                             {projet.Titre}
@@ -68,7 +68,7 @@ export default function MobileMenu() {
                       item.services.map((service) => (
                         <div key={service.Slug} className="p-2">
                           <Link
-                            href={`${baseURL}/services/${service.Slug}`}
+                            href={`/services/${service.Slug}`}
                             onClick={() => setOpen(false)}
                           >
                             {service.Titre}
