@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import { Metadata } from "next";
+import { baseURL } from "@/src/hook/hook";
 
 export const metadata: Metadata = {
   title: "Page des services de la crêche de Wavre",
@@ -55,7 +56,7 @@ export default async function Page() {
             return (
               <Link
                 key={service.Titre}
-                href={`${process.env.API_STRAPI}/services/${service.Slug}`}
+                href={`${baseURL}/services/${service.Slug}`}
                 className="hover:scale-105 rounded-2xl transition-all duration-200 ease-in-out"
               >
                 <Card className="flex flex-col !border-none bg-popover hover:bg-yellow-400 !shadow-2xl transition-all duration-200 ease-in-out">

@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import { Metadata } from "next";
+import { baseURL } from "@/src/hook/hook";
 
 export const metadata: Metadata = {
   title: "Page des projets de la crêche de Wavre",
@@ -52,7 +53,7 @@ export default async function Page() {
             return (
               <Link
                 key={projet.Titre}
-                href={`${process.env.API_STRAPI}/projet-pedagogique/${projet.Slug}`}
+                href={`${baseURL}/projet-pedagogique/${projet.Slug}`}
                 className="hover:scale-105 rounded-2xl transition-all duration-200 ease-in-out"
               >
                 <Card className="flex flex-col !border-none bg-popover hover:bg-yellow-400 !shadow-2xl transition-all duration-200 ease-in-out">
