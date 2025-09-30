@@ -52,7 +52,10 @@ export default function MobileMenu() {
                   <AccordionTrigger className="text-lg font-medium !py-1">
                     {item.Titre}
                   </AccordionTrigger>
-                  <AccordionContent aria-description={item.Titre}>
+                  <AccordionContent
+                    aria-description={item.Titre}
+                    className="grid grid-cols-2"
+                  >
                     {item.projets &&
                       item.projets.map((projet) => (
                         <div key={projet.Slug} className="p-2">

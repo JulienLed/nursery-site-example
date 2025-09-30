@@ -23,6 +23,7 @@ export default function Header() {
                 src={logo}
                 width={648}
                 height={610}
+                priority
               />
             </Link>
           </div>
@@ -39,6 +40,7 @@ export default function Header() {
                 src={logo}
                 width={648}
                 height={610}
+                priority
               />
             </Link>
           </div>
