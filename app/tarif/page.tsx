@@ -15,15 +15,14 @@ import { useTarifs } from "@/src/hook/hook";
 
 export default function Page() {
   const { data } = useTarifs();
-  const tarifsArr = data;
   const [value, setValue] = useState(0);
   const [price, setPrice] = useState(0);
   const handleValidate = () =>
     setPrice(() => {
       if (value === 1) return 90;
-      const tarif = tarifsArr?.find((tarif) => tarif.Jour === value);
+      const tarif = data?.find((tarif) => tarif.Jour === value);
       if (!tarif) return 0;
-      return tarif.Price;
+      return tarif.price;
     });
   return (
     <Card className="max-w-full w-full animate-fade-left duration-200 leading-8 sm:leading-10 !bg-accent !border-none !shadow-2xl">

@@ -43,6 +43,6 @@ export type Data = {
   }[];
   Tarif: {
     Jour: number;
-    Price: number;
+    price: number;
   };
 };

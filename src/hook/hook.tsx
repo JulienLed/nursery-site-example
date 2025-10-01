@@ -89,7 +89,7 @@ export const useTarifs = () => {
       try {
         const res = await fetch(`/api/tarifs`);
         const resJson = await res.json();
-        setData(resJson);
+        setData(resJson.data);
       } catch (err) {
         console.error("Erreur fetch menu:", err);
       }
