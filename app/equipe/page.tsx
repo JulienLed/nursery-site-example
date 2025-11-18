@@ -69,7 +69,7 @@ export default async function Page() {
                     <CardContent>
                       <Image
                         alt={member.Name}
-                        src={member.Image[0].url}
+                        src={`https://crechedewavre.duckdns.org${member.Image[0].url}`}
                         width={member.Image[0].width}
                         height={member.Image[0].height}
                         className="w-[30vw] min-w-[230px] rounded-2xl justify-self-center"

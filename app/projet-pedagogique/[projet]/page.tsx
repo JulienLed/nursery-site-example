@@ -16,7 +16,7 @@ type Projet = {
   Slug: string;
   Titre: string;
   Description: string;
-  ImageProjet: { url: string; width: number; height: number };
+  ImageProject: { url: string; width: number; height: number }[];
   Details: string[];
 };
 
@@ -49,12 +49,12 @@ export default function Page({
             <Card className="!bg-popover !border-none">
               <CardContent className="grid grid-cols-1">
                 <div className="w-[30vw] min-w-[250px] justify-self-center py-5">
-                  {projet?.ImageProjet.url && (
+                  {projet?.ImageProject[0].url && (
                     <Image
                       alt={projet?.Titre + " Image"}
-                      src={projet?.ImageProjet.url}
-                      width={projet?.ImageProjet.width}
-                      height={projet?.ImageProjet.height}
+                      src={`https://crechedewavre.duckdns.org${projet?.ImageProject[0].url}`}
+                      width={projet?.ImageProject[0].width}
+                      height={projet?.ImageProject[0].height}
                       className="rounded-2xl"
                       priority
                     />

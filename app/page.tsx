@@ -81,7 +81,7 @@ export default async function Page() {
 
                         <Image
                           alt={el.Titre + " image"}
-                          src={el.Image[0].url}
+                          src={`https://crechedewavre.duckdns.org${el.Image[0].url}`}
                           width={el.Image[0].width}
                           height={el.Image[0].height}
                         />

@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "capable-peace-2774df44eb.media.strapiapp.com",
+        hostname: "crechedewavre.duckdns.org",
       },
     ],
   },
