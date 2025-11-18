@@ -15,10 +15,10 @@ export const metadata: Metadata = {
 
 const fetchProject = async () => {
   const response = await fetch(`${process.env.API_STRAPI}/menus?populate=*`, {
+    method: "GET",
     headers: {
       Authorization: `Bearer ${process.env.API_KEY_STRAPI}`,
     },
-    next: { revalidate: 300 },
   });
   const json = await response.json();
   return json.data;
